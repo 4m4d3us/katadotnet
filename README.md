@@ -1,0 +1,2 @@
+# katadotnet
+some dotnet kata
