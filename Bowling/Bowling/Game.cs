@@ -14,11 +14,15 @@
         /// <returns>
         /// The same game instance.
         /// </returns>
-        public Game Roll (int fallenPinsCount) => this;
+        public Game Roll (int fallenPinsCount)
+        {
+            Score += fallenPinsCount;
+            return this;
+        }
 
         /// <summary>
         /// Returns the computed score for that game so far.
         /// </summary>
-        public int Score => 0;
+        public int Score { get; private set; }
     }
 }

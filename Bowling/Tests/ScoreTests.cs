@@ -21,6 +21,19 @@ namespace Tests
             Assert.Equal (0, game.Score);
         }
 
+        //TODO: Refactor c/c code
+        [Fact (DisplayName = "Only 1 pin each roll game score is 20")]
+        public void OnlyOnePinEachRollGameScoreIsTwenty()
+        {
+            var game = new Game ();
+
+            // 20 explanation: 10 turns with 2 roll each
+            for (var i = 0; i < 20; ++i)
+                game.Roll (1);
+
+            Assert.Equal (20, game.Score);
+        }
+
         [Fact (Skip = "todo later in kata")]
         public void FinalStrikeGame ()
         {
