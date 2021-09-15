@@ -36,15 +36,15 @@
 
                 for (var turn = 0; turn < 10; ++turn)
                 {
-                    if (rolls[rollIndex] == 10)
+                    if (IsStrike(rollIndex))
                     {
-                        score += SpareScore (rollIndex);
+                        score += SpecialScore (rollIndex);
                         ++rollIndex;
                     }
                     else
                     {
                         if (IsSpare (rollIndex))
-                            score += SpareScore (rollIndex);
+                            score += SpecialScore (rollIndex);
                         else
                             score += NormalScore (rollIndex);
 
@@ -60,6 +60,8 @@
 
         private bool IsSpare (int rollIndex) => NormalScore (rollIndex) == 10;
 
-        private int SpareScore (int rollIndex) => NormalScore (rollIndex) + rolls[rollIndex + 2];
+        private int SpecialScore (int rollIndex) => NormalScore (rollIndex) + rolls[rollIndex + 2];
+
+        private bool IsStrike (int rollIndex) => rolls[rollIndex] == 10;
     }
 }
