@@ -68,7 +68,18 @@ namespace Tests
             Assert.Equal (24, game.Score);
         }
 
-        [Fact (Skip = "todo later in kata")]
+        [Fact (DisplayName = "Perfect game score is 300")]
+        public void PerfectGameScoreIsThreeHundred()
+        {
+            var game = new Game ();
+
+            // 12 explanation: 10 strikes with 2 extra rolls
+            SameRoll (game, 10, 12);
+
+            Assert.Equal (300, game.Score);
+        }
+
+        [Fact]
         public void FinalStrikeGame ()
         {
             var game = new Game ()
@@ -95,7 +106,7 @@ namespace Tests
             Assert.Equal (161, game.Score);
         }
 
-        [Fact (Skip = "todo later in kata")]
+        [Fact]
         public void NoFinalStrikeGame ()
         {
             var game = new Game ()
