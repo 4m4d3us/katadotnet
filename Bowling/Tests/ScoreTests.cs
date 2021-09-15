@@ -6,7 +6,7 @@ namespace Tests
 {
     public class ScoreTests
     {
-        [Fact (DisplayName = "No rolled game score is 0")]
+        [Fact (DisplayName = "No rolled game score is 0", Skip = "Redundant with only fail test")]
         public void NoRolledGameScoreIsZero () => Assert.Equal (0, new Game ().Score);
 
         [Fact (DisplayName = "Only failed roll game score is 0")]
