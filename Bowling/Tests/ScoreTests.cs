@@ -44,6 +44,17 @@ namespace Tests
             Assert.Equal (24, game.Score);
         }
 
+        [Fact (DisplayName = "Only spares with extra 5 game score is 150")]
+        public void OnlySpareWithExtraFiveGameScoreIsOneHundredFifty()
+        {
+            var game = new Game ();
+
+            // 21 explanation: 10 spares with 1 extra roll
+            SameRoll (game, 5, 21);
+
+            Assert.Equal (150, game.Score);
+        }
+
         [Fact (Skip = "todo later in kata")]
         public void FinalStrikeGame ()
         {
