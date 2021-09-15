@@ -6,6 +6,8 @@ namespace Tests
 {
     public class ScoreTests
     {
+        [Fact (DisplayName = "No rolled game score is 0")]
+        public void NoRolledGameScoreIsZero () => Assert.Equal (0, new Game ().Score);
 
         [Fact (Skip = "todo later in kata")]
         public void FinalStrikeGame ()

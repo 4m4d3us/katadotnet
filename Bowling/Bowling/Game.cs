@@ -4,6 +4,6 @@
     {
         public Game Roll (int fallenPinsCount) => this;
 
-        public int Score => -1;
+        public int Score => 0;
     }
 }
