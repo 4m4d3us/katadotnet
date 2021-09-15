@@ -1,5 +1,5 @@
 using Bowling;
-using System;
+
 using Xunit;
 
 namespace Tests
@@ -7,58 +7,58 @@ namespace Tests
     public class ScoreTests
     {
 
-        Partie partie = new Partie();
-
-        [Fact]
-        public void PartieAvecStrikeFinal()
+        [Fact (Skip = "todo later in kata")]
+        public void FinalStrikeGame ()
         {
-            partie.Lancer(9)
-                    .Lancer(1)
-                    .Lancer(4)
-                    .Lancer(5)
-                    .Lancer(7)
-                    .Lancer(2)
-                    .Lancer(4)
-                    .Lancer(6)
-                    .Lancer(5)
-                    .Lancer(5)
-                    .Lancer(10)
-                    .Lancer(5)
-                    .Lancer(3)
-                    .Lancer(6)
-                    .Lancer(2)
-                    .Lancer(10)
-                    .Lancer(10)
-                    .Lancer(10)
-                    .Lancer(10);
+            var game = new Game ()
+                .Roll (9)
+                .Roll (1)
+                .Roll (4)
+                .Roll (5)
+                .Roll (7)
+                .Roll (2)
+                .Roll (4)
+                .Roll (6)
+                .Roll (5)
+                .Roll (5)
+                .Roll (10)
+                .Roll (5)
+                .Roll (3)
+                .Roll (6)
+                .Roll (2)
+                .Roll (10)
+                .Roll (10)
+                .Roll (10)
+                .Roll (10);
 
-            Assert.Equal(161, partie.CalculerScore());
+            Assert.Equal (161, game.Score);
         }
 
-        [Fact]
-        public void PartieSansStrikeFinal()
+        [Fact (Skip = "todo later in kata")]
+        public void NoFinalStrikeGame ()
         {
-            partie.Lancer(4)
-                    .Lancer(2)
-                    .Lancer(4)
-                    .Lancer(5)
-                    .Lancer(3)
-                    .Lancer(5)
-                    .Lancer(3)
-                    .Lancer(2)
-                    .Lancer(4)
-                    .Lancer(5)
-                    .Lancer(3)
-                    .Lancer(5)
-                    .Lancer(4)
-                    .Lancer(6)
-                    .Lancer(10)
-                    .Lancer(2)
-                    .Lancer(8)
-                    .Lancer(6)
-                    .Lancer(3);
+            var game = new Game ()
+                .Roll (4)
+                .Roll (2)
+                .Roll (4)
+                .Roll (5)
+                .Roll (3)
+                .Roll (5)
+                .Roll (3)
+                .Roll (2)
+                .Roll (4)
+                .Roll (5)
+                .Roll (3)
+                .Roll (5)
+                .Roll (4)
+                .Roll (6)
+                .Roll (10)
+                .Roll (2)
+                .Roll (8)
+                .Roll (6)
+                .Roll (3);
 
-            Assert.Equal(110, partie.CalculerScore());
+            Assert.Equal (110, game.Score);
         }
     }
 }
