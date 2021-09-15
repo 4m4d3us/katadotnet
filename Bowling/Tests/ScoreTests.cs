@@ -9,6 +9,18 @@ namespace Tests
         [Fact (DisplayName = "No rolled game score is 0")]
         public void NoRolledGameScoreIsZero () => Assert.Equal (0, new Game ().Score);
 
+        [Fact (DisplayName = "Only failed roll game score is 0")]
+        public void OnlyFailedRollGameScoreIsZero()
+        {
+            var game = new Game ();
+
+            // 20 explanation: 10 turns with 2 roll each
+            for (var i = 0; i < 20; ++i)
+                game.Roll (0);
+
+            Assert.Equal (0, game.Score);
+        }
+
         [Fact (Skip = "todo later in kata")]
         public void FinalStrikeGame ()
         {
