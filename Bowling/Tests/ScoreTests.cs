@@ -31,6 +31,19 @@ namespace Tests
             Assert.Equal (20, game.Score);
         }
 
+        [Fact (DisplayName = "Starting spare followed by 7 game score is 24")]
+        public void StartingSpareFollowedbySevenGameScoreIsTwentyFour()
+        {
+            var game = new Game ()
+                .Roll (8)
+                .Roll (2)
+                .Roll (7);
+
+            SameRoll (game, 0, 17);
+
+            Assert.Equal (24, game.Score);
+        }
+
         [Fact (Skip = "todo later in kata")]
         public void FinalStrikeGame ()
         {
