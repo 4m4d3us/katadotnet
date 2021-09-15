@@ -36,12 +36,20 @@
 
                 for (var turn = 0; turn < 10; ++turn)
                 {
-                    if (IsSpare (rollIndex))
+                    if (rolls[rollIndex] == 10)
+                    {
                         score += SpareScore (rollIndex);
+                        ++rollIndex;
+                    }
                     else
-                        score += NormalScore (rollIndex);
+                    {
+                        if (IsSpare (rollIndex))
+                            score += SpareScore (rollIndex);
+                        else
+                            score += NormalScore (rollIndex);
 
-                    rollIndex += 2;
+                        rollIndex += 2;
+                    }
                 }
 
                 return score;
